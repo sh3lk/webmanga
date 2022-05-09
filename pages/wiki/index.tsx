@@ -8,7 +8,7 @@ const Home: NextPage = () => {
 
   return (
     <>
-      index
+      wiki
     </>
   )
 }
