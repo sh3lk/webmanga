@@ -1,19 +1,18 @@
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
-// material
 import { styled } from '@mui/material/styles';
 import { Box, Link, Button, Drawer, Typography, Avatar, Stack } from '@mui/material';
-// components
-import Logo from '../../components/Logo';
-import Scrollbar from '../../components/Scrollbar';
-import NavSection from '../../components/NavSection';
-import { MHidden } from '../../components/@material-extend';
-//
+import Logo from '@/components/Logo';
+import Scrollbar from '@/components/Scrollbar';
+import NavSection from '@/components/NavSection';
+import { MHidden } from '@/components/@material-extend';
 import sidebarConfig from './sidebar-config';
-import account from '../../_mocks_/account';
-
-// ----------------------------------------------------------------------
+const account = {
+  displayName: "Jaydon Frankie",
+  email: "demo@minimals.cc",
+  photoURL: "/static/mock-images/avatars/avatar_default.jpg",
+};
 
 const DRAWER_WIDTH = 280;
 
@@ -31,8 +30,6 @@ const AccountStyle = styled('div')(({ theme }) => ({
   borderRadius: theme.shape.borderRadiusSm,
   backgroundColor: theme.palette.grey[200]
 }));
-
-// ----------------------------------------------------------------------
 
 DashboardSidebar.propTypes = {
   isOpenSidebar: PropTypes.bool,

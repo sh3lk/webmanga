@@ -2,10 +2,10 @@ import type { NextPage } from "next";
 
 import { useState } from "react";
 
-const Persons: NextPage = () => {
+const Home: NextPage = () => {
   const [open, setOpen] = useState(false);
 
-  return <>persons</>;
+  return <>me settings</>;
 };
 
-export default Persons;
+export default Home;

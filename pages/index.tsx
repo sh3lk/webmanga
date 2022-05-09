@@ -1,16 +1,11 @@
-import type { NextPage } from 'next'
+import type { NextPage } from "next";
 
-import { useState } from 'react'
-
+import { useState } from "react";
 
 const Home: NextPage = () => {
   const [open, setOpen] = useState(false);
 
-  return (
-    <>
-      index
-    </>
-  )
-}
+  return <>index</>;
+};
 
-export default Home
+export default Home;

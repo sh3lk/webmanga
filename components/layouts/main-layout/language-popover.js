@@ -1,11 +1,7 @@
 import { useRef, useState } from 'react';
-// material
 import { alpha } from '@mui/material/styles';
 import { Box, MenuItem, ListItemIcon, ListItemText, IconButton } from '@mui/material';
-// components
 import MenuPopover from '@/components/menu-popover';
-
-// ----------------------------------------------------------------------
 
 const LANGS = [
   {
@@ -24,8 +20,6 @@ const LANGS = [
     icon: '/static/icons/ic_flag_fr.svg'
   }
 ];
-
-// ----------------------------------------------------------------------
 
 export default function LanguagePopover() {
   const anchorRef = useRef(null);

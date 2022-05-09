@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { styled } from '@mui/material/styles';
 import Navbar from './navbar';
-
+import { useRouter } from 'next/router';
 
 const APP_BAR_MOBILE = 64;
 const APP_BAR_DESKTOP = 92;
@@ -28,10 +28,11 @@ const MainStyle = styled('div')(({ theme }) => ({
 
 export default function MainLayout({ children }) {
   const [open, setOpen] = useState(false);
-
+  const {route} = useRouter();
+  const isAuthRoute = route.includes('/auth/');
   return (
     <RootStyle>
-      <Navbar onOpenSidebar={() => setOpen(true)} />
+      <Navbar hasAccout={!isAuthRoute} hasTabs={!isAuthRoute} hasSearch={!isAuthRoute} onOpenSidebar={() => setOpen(true)} />
       <MainStyle>
         {children}
       </MainStyle>
