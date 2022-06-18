@@ -36,7 +36,6 @@ const MENU_OPTIONS = [
   },
 ];
 
-
 export default function AccountPopover() {
   const router = useRouter();
   const { data: session } = useSession()
