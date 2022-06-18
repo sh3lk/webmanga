@@ -6,6 +6,7 @@ import settings2Fill from "@iconify/icons-eva/settings-2-fill";
 import Link from "next/link";
 import { alpha } from "@mui/material/styles";
 import { useRouter } from "next/router";
+import { useSession, signIn, signOut } from "next-auth/react"
 import {
   Button,
   Box,
@@ -41,8 +42,30 @@ const MENU_OPTIONS = [
   },
 ];
 
+// export default function Component() {
+//   const { data: {user} = {} } = useSession()
+//   console.log(session.user)
+//   if (session) {
+//     return (
+//       <>
+//         Signed in as {session.user.email} <br />
+//         <button onClick={() => signOut()}>Sign out</button>
+//       </>
+//     )
+//   }
+//   return (
+//     <>
+//       Not signed in <br />
+//       <button onClick={() => signIn()}>Sign in</button>
+//     </>
+//   )
+// }
+
+
 export default function AccountPopover() {
   const router = useRouter();
+  const { data: session } = useSession()
+  const {user} = session || {}
   const anchorRef = useRef(null);
   const [open, setOpen] = useState(false);
 
@@ -53,7 +76,7 @@ export default function AccountPopover() {
     setOpen(false);
   };
 
-  return (
+  return user ? (
     <>
       <IconButton
         ref={anchorRef}
@@ -75,7 +98,7 @@ export default function AccountPopover() {
           }),
         }}
       >
-        <Avatar src={account.photoURL} alt="photoURL" />
+        <Avatar src={user.image} alt="photoURL" />
       </IconButton>
 
       <MenuPopover
@@ -86,10 +109,10 @@ export default function AccountPopover() {
       >
         <Box sx={{ my: 1.5, px: 2.5 }}>
           <Typography variant="subtitle1" noWrap>
-            {account.displayName}
+            {user.name}
           </Typography>
           <Typography variant="body2" sx={{ color: "text.secondary" }} noWrap>
-            {account.email}
+            {user.email}
           </Typography>
         </Box>
 
@@ -117,11 +140,15 @@ export default function AccountPopover() {
         ))}
 
         <Box sx={{ p: 2, pt: 1.5 }} >
-          <Button onClick={() => router.push('/auth/logout')} fullWidth color="inherit" variant="outlined">
+          <Button onClick={() => signOut()} fullWidth color="inherit" variant="outlined">
             Logout
           </Button>
         </Box>
       </MenuPopover>
     </>
-  );
+  ) : (<>
+      <IconButton onClick={() => signIn()}>
+        <Icon icon={personFill} width={24} height={24} />
+      </IconButton>
+  </>)
 }

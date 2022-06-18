@@ -2,26 +2,25 @@ import { useRef, useState } from 'react';
 import { alpha } from '@mui/material/styles';
 import { Box, MenuItem, ListItemIcon, ListItemText, IconButton } from '@mui/material';
 import MenuPopover from '@/components/menu-popover';
+import { Icon } from '@iconify/react';
+import compassFill from '@iconify/icons-eva/compass-fill';
 
-const LANGS = [
+const SITES = [
   {
     value: 'en',
-    label: 'English',
-    icon: '/static/icons/ic_flag_en.svg'
+    label: 'webmanga',
   },
   {
     value: 'de',
-    label: 'German',
-    icon: '/static/icons/ic_flag_de.svg'
+    label: 'webranobe',
   },
   {
     value: 'fr',
-    label: 'French',
-    icon: '/static/icons/ic_flag_fr.svg'
+    label: 'webhentai',
   }
 ];
 
-export default function LanguagePopover() {
+export default function SitePopover() {
   const anchorRef = useRef(null);
   const [open, setOpen] = useState(false);
 
@@ -47,15 +46,15 @@ export default function LanguagePopover() {
           })
         }}
       >
-        {/* <img src={LANGS[0].icon} alt={LANGS[0].label} /> */}
+        <Icon icon={compassFill} />
       </IconButton>
 
       <MenuPopover open={open} onClose={handleClose} anchorEl={anchorRef.current}>
         <Box sx={{ py: 1 }}>
-          {LANGS.map((option) => (
+          {SITES.map((option) => (
             <MenuItem
               key={option.value}
-              selected={option.value === LANGS[0].value}
+              selected={option.value === SITES[0].value}
               onClick={handleClose}
               sx={{ py: 1, px: 2.5 }}
             >

@@ -1,10 +1,10 @@
 import type { NextPage } from "next";
 import { styled } from "@mui/material/styles";
-import { Box, Stack, Link, Container, Typography } from "@mui/material";
+import { Stack, Link, Container, Typography } from "@mui/material";
 
 import LoginForm from "@/components/form/login";
 import AuthSocial from "@/components/form/social";
-
+import { signIn } from "next-auth/react";
 const ContentStyle = styled("div")(({ theme }) => ({
   maxWidth: 480,
   margin: "auto",
@@ -15,22 +15,27 @@ const ContentStyle = styled("div")(({ theme }) => ({
   padding: theme.spacing(8, 0),
 }));
 
-const Register: NextPage = () => {
+const Login: NextPage = () => {
+  const handleSingIn = (policy: string, credentials: any) =>
+    signIn(policy, credentials);
+  const singInByCredentials = (credentials: any) =>
+    signIn("credentials", credentials);
+
   return (
     <Container>
       <ContentStyle>
         <Stack sx={{ mb: 5 }}>
           <Typography variant="h4" gutterBottom>
-            Sign in to Minimal
+            Sign in to webmanga
           </Typography>
           <Typography sx={{ color: "text.secondary" }}>
             Enter your details below.
           </Typography>
         </Stack>
 
-        <AuthSocial />
+        <AuthSocial onSubmit={handleSingIn} />
 
-        <LoginForm />
+        <LoginForm onSubmit={singInByCredentials} />
 
         <Typography
           variant="body2"
@@ -61,4 +66,4 @@ const Register: NextPage = () => {
   );
 };
 
-export default Register;
+export default Login;
