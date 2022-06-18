@@ -1,5 +1,5 @@
 # webmanga
-Is web based application that can manage your manga collection and provide online reading experience  
+Is web based application that can manage your manga collection and provide online reading experience. 
 
 ## Getting Started
 
