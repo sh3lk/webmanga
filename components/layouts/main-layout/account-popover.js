@@ -18,12 +18,6 @@ import {
 } from "@mui/material";
 import MenuPopover from "@/components/menu-popover";
 
-const account = {
-  displayName: "Jaydon Frankie",
-  email: "demo@minimals.cc",
-  photoURL: "/static/mock-images/avatars/avatar_default.jpg",
-};
-
 const MENU_OPTIONS = [
   {
     label: "Home",
@@ -41,25 +35,6 @@ const MENU_OPTIONS = [
     linkTo: "/me/settings",
   },
 ];
-
-// export default function Component() {
-//   const { data: {user} = {} } = useSession()
-//   console.log(session.user)
-//   if (session) {
-//     return (
-//       <>
-//         Signed in as {session.user.email} <br />
-//         <button onClick={() => signOut()}>Sign out</button>
-//       </>
-//     )
-//   }
-//   return (
-//     <>
-//       Not signed in <br />
-//       <button onClick={() => signIn()}>Sign in</button>
-//     </>
-//   )
-// }
 
 
 export default function AccountPopover() {
