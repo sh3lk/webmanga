@@ -1,15 +1,10 @@
-import PropTypes from "prop-types";
+import Image from 'next/image'
 import NextLink from "next/link";
-import { Icon } from "@iconify/react";
-import roundStarRate from "@iconify/icons-ic/round-star-rate";
-import { Box, Card, Link, Typography, Stack } from "@mui/material";
+import {Paper, Card, Link, Stack, Button, CardActionArea, CardMedia} from "@mui/material";
 import { styled } from "@mui/material/styles";
-// utils
-
-//
 import Label from "@/components/label";
+import {getImage, getImageProps} from '@/lib/common/utils'
 
-// ----------------------------------------------------------------------
 
 const ProductImgStyle = styled("img")({
   top: 0,
@@ -19,33 +14,40 @@ const ProductImgStyle = styled("img")({
   position: "absolute",
 });
 
-// ----------------------------------------------------------------------
 
-export default function MangaCard({ id, title, cover, status }) {
+export default function MangaCard({ id, name, cover, status }) {
   return (
-    <Box>
-      <Card variant="outlined">
-        <Box sx={{ pt: "143%", position: "relative" }}>
+    <>
+      <Card elevation={12} sx={{maxHeight:'333px'}} variant="outlined">
           {status && (
-            <Label
-              variant="filled"
-              color={(status === "hot" && "error") || "info"}
-              sx={{
-                zIndex: 9,
-                top: 16,
-                right: 16,
-                position: "absolute",
-                textTransform: "uppercase",
-              }}
-            >
-              {status}
-            </Label>
+              <Label
+                  variant="filled"
+                  color={(status === "hot" && "error") || "info"}
+                  sx={{
+                      zIndex: 10,
+                      top: 8,
+                      right: 8,
+                      position: "absolute",
+                      textTransform: "uppercase",
+                  }}
+              >
+                  {status}
+              </Label>
           )}
-          <ProductImgStyle alt={title} src={cover} />
-        </Box>
+              <NextLink href={`manga/${id}`}>
+                  <CardActionArea component="a">
+                      <Image
+                          src={getImage(cover)}
+                          objectFit="cover"
+                          height={334}
+                          width={210.8}
+                          alt={name}
+                      />
+                  </CardActionArea>
+              </NextLink>
       </Card>
       <Stack sx={{ pt: 1, px: 2 }}>
-        <NextLink href={"/"}>
+        <NextLink href={`manga/${id}`}>
           <Link
             style={{ cursor: "pointer" }}
             variant="subtitle2"
@@ -53,7 +55,7 @@ export default function MangaCard({ id, title, cover, status }) {
             underline="hover"
             noWrap
           >
-            {title}
+            {name}
           </Link>
         </NextLink>
         <NextLink href={"/"}>
@@ -66,6 +68,6 @@ export default function MangaCard({ id, title, cover, status }) {
           >{`том 1 глава ${id}`}</Link>
         </NextLink>
       </Stack>
-    </Box>
+    </>
   );
 }

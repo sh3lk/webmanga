@@ -1,29 +1,53 @@
 import type { NextPage } from "next";
-import { useFormik } from 'formik';
-import { useState } from 'react';
-import { Container, Stack, Typography } from '@mui/material';
-import {
-  MangaSort,
-  MangaList,
-  MangaFilterSidebar
-} from '@/components/catalog';
+import { useFormik } from "formik";
+import { useState } from "react";
+import { Container, Stack, Typography } from "@mui/material";
+import { MangaSort, MangaList, MangaFilterSidebar } from "@/components/catalog";
+import { useQuery, gql } from "@apollo/client";
+import { REVALIDATE_INTERVAL } from "lib/constants";
+import { motion } from "framer-motion"
+const CATALOG = gql`
+query{
+  mangas {
+    data {
+      id
+      attributes {
+      	name
+        cover {
+          data {
+            attributes {
+              url
+            }
+          }
+        }
+    	}
+  	}
+  }
+}
+`;
+
+export async function getStaticProps() {
+  return {
+    props: {},
+    revalidate: REVALIDATE_INTERVAL.catalog,
+  };
+}
 
 const Catalog: NextPage = () => {
-  const [open, setOpen] = useState(false);
-
+  const { data, loading, error } = useQuery(CATALOG);
   const [openFilter, setOpenFilter] = useState(false);
 
   const formik = useFormik({
     initialValues: {
-      gender: '',
-      category: '',
-      colors: '',
-      priceRange: '',
-      rating: ''
+      gender: "",
+      category: "",
+      colors: "",
+      priceRange: "",
+      rating: "",
     },
     onSubmit: () => {
       setOpenFilter(false);
-    }
+    },
   });
 
   const { resetForm, handleSubmit } = formik;
@@ -42,19 +66,23 @@ const Catalog: NextPage = () => {
   };
 
   return (
-    <>
+      <motion.div
+          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.15 }}
+      >
       <Container>
-        <Typography variant="h4" sx={{ mt: 4 }}>
-          Manga list
-        </Typography>
-
         <Stack
           direction="row"
-          flexWrap="wrap-reverse"
+          flexWrap="wrap"
           alignItems="center"
-          justifyContent="flex-end"
-          sx={{ mb: 5 }}
+          justifyContent="space-between"
+          sx={{ mb: 5, mt:6 }}
         >
+          <Typography variant="h5">
+            Manga list
+          </Typography>
           <Stack direction="row" spacing={1} flexShrink={0} sx={{ my: 1 }}>
             <MangaFilterSidebar
               formik={formik}
@@ -66,29 +94,17 @@ const Catalog: NextPage = () => {
             <MangaSort />
           </Stack>
         </Stack>
-
-        <MangaList list={[
-        { id: 1, title: "Начало после конца", cover: "https://mangalib.me/uploads/cover/the-beginning-after-the-end/cover/r1uqydHG5iuV_250x350.jpg", status: "hot" },
-        { id: 2, title: "Начало после конца", cover: "https://mangalib.me/uploads/cover/chainsaw-man/cover/mUIlgi4AJypL_250x350.jpg", status: null },
-        { id: 3, title: "Начало после конца", cover: "https://mangalib.me/uploads/cover/uzaki-chan-wa-asobitai/cover/ScJPY787nfGo_250x350.jpg", status: null },
-        { id: 41, title: "Начало после конца", cover: "https://mangalib.me/uploads/cover/kimetsu-no-yaiba/cover/4KagQthKA49B_250x350.jpg", status: null },
-        { id: 5, title: "Начало после конца", cover: "https://mangalib.me/uploads/cover/himouto-umaru-chan/cover/Et79IkwBDpEv_250x350.jpg", status: null },
-        { id: 6, title: "Начало после конца", cover: "https://mangalib.me/uploads/cover/the-beginning-after-the-end/cover/r1uqydHG5iuV_250x350.jpg", status: "in reading" },
-        { id: 76, title: "Начало после конца", cover: "https://mangalib.me/uploads/cover/the-beginning-after-the-end/cover/r1uqydHG5iuV_250x350.jpg", status: null },
-        { id: 5544, title: "Начало после конца", cover: "https://mangalib.me/uploads/cover/the-beginning-after-the-end/cover/r1uqydHG5iuV_250x350.jpg", status: null },
-        { id: 7236, title: "Начало после конца", cover: "https://mangalib.me/uploads/cover/the-beginning-after-the-end/cover/r1uqydHG5iuV_250x350.jpg", status: null },
-        { id: 52, title: "Начало после конца", cover: "https://mangalib.me/uploads/cover/the-beginning-after-the-end/cover/r1uqydHG5iuV_250x350.jpg", status: null },
-        { id: 7126, title: "Начало после конца", cover: "https://mangalib.me/uploads/cover/the-beginning-after-the-end/cover/r1uqydHG5iuV_250x350.jpg", status: null },
-        { id: 5443, title: "Начало после конца", cover: "https://mangalib.me/uploads/cover/the-beginning-after-the-end/cover/r1uqydHG5iuV_250x350.jpg", status: null },
-        { id: 7346, title: "Начало после конца", cover: "https://mangalib.me/uploads/cover/the-beginning-after-the-end/cover/r1uqydHG5iuV_250x350.jpg", status: null },
-        { id: 5234, title: "Начало после конца", cover: "https://mangalib.me/uploads/cover/the-beginning-after-the-end/cover/r1uqydHG5iuV_250x350.jpg", status: null },
-        { id: 476, title: "Начало после конца", cover: "https://mangalib.me/uploads/cover/the-beginning-after-the-end/cover/r1uqydHG5iuV_250x350.jpg", status: null },
-        { id: 5124, title: "Начало после конца", cover: "https://mangalib.me/uploads/cover/the-beginning-after-the-end/cover/r1uqydHG5iuV_250x350.jpg", status: null },
-        { id: 23, title: "Начало после конца", cover: "https://mangalib.me/uploads/cover/the-beginning-after-the-end/cover/r1uqydHG5iuV_250x350.jpg", status: "top" },
-        
-        ]} />
+        {
+          loading
+          ? <>loading</>
+          : (
+            <MangaList
+              list={data.mangas.data}
+            />
+          )
+        }
       </Container>
-    </>
+      </motion.div>
   );
 };
 

@@ -32,7 +32,7 @@ export default function MainLayout({ children }) {
   const isAuthRoute = route.includes('/auth/');
   return (
     <RootStyle>
-      <Navbar hasAccout={!isAuthRoute} hasTabs={!isAuthRoute} hasSearch={!isAuthRoute} onOpenSidebar={() => setOpen(true)} />
+      <Navbar hasAuthSupport={isAuthRoute} hasTabs={!isAuthRoute} hasSearch={!isAuthRoute} onOpenSidebar={() => setOpen(true)} />
       <MainStyle>
         {children}
       </MainStyle>

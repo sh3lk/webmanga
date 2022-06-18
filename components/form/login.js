@@ -5,7 +5,7 @@ import { useFormik, Form, FormikProvider } from 'formik';
 import { Icon } from '@iconify/react';
 import eyeFill from '@iconify/icons-eva/eye-fill';
 import eyeOffFill from '@iconify/icons-eva/eye-off-fill';
-
+import { signIn } from "next-auth/react";
 import {
   Link,
   Stack,
@@ -17,7 +17,7 @@ import {
 } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 
-export default function Login() {
+export default function Login({onSubmit}) {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
 
@@ -33,9 +33,7 @@ export default function Login() {
       remember: true
     },
     validationSchema: LoginSchema,
-    onSubmit: () => {
-      router.push('/');
-    }
+    onSubmit
   });
 
   const { errors, touched, values, isSubmitting, handleSubmit, getFieldProps } = formik;
@@ -50,7 +48,7 @@ export default function Login() {
         <Stack spacing={3}>
           <TextField
             fullWidth
-            autoComplete="username"
+            autoComplete="email"
             type="email"
             label="Email address"
             {...getFieldProps('email')}
