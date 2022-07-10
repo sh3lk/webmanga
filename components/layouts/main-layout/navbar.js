@@ -38,22 +38,22 @@ const TABS = [
   {
     label: "Catalog",
     href: "/catalog",
-    match: "",
+    match: "catalog",
   },
   {
     label: "News",
     href: "/news",
-    match: "",
+    match: "news",
   },
   {
     label: "Persons",
     href: "/persons",
-    match: "",
+    match: "persons",
   },
   {
     label: "Wiki",
     href: "/wiki",
-    match: "",
+    match: "wiki",
   },
 ];
 
@@ -126,7 +126,7 @@ export default function Navbar({
     for (const _index in TABS) {
       const index = Number(_index);
 
-      if (router.route === TABS[index].href) {
+      if (router.route.includes(TABS[index].match)) {
         setTabIndex(index);
       }
     }
