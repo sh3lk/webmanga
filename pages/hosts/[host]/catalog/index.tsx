@@ -7,6 +7,7 @@ import Loader from "components/loader";
 import { useQuery, gql } from "@apollo/client";
 import { REVALIDATE_INTERVAL } from "lib/constants";
 import { motion } from "framer-motion";
+import {getCommonProps, getPaths} from "lib/site";
 
 const CATALOG = gql`
   query {
@@ -28,14 +29,22 @@ const CATALOG = gql`
   }
 `;
 
-export async function getStaticProps() {
+export async function getStaticPaths() {
   return {
-    props: {},
+    paths: getPaths(),
+    fallback: 'blocking',
+  };
+}
+
+export async function getStaticProps({params: {host}}: any) {
+  return {
+    props: getCommonProps(host),
     revalidate: REVALIDATE_INTERVAL.catalog,
   };
 }
 
-const Catalog: NextPage = () => {
+const Catalog: NextPage = ({config}: any) => {
+
   const { data, loading, error } = useQuery(CATALOG);
   const [openFilter, setOpenFilter] = useState(false);
 
@@ -82,7 +91,7 @@ const Catalog: NextPage = () => {
           justifyContent="space-between"
           sx={{ mb: 5, mt: 6 }}
         >
-          <Typography variant="h5">Manga list</Typography>
+          <Typography variant="h5">{config.type} list</Typography>
           <Stack direction="row" spacing={1} flexShrink={0} sx={{ my: 1 }}>
             <MangaFilterSidebar
               formik={formik}
@@ -94,7 +103,7 @@ const Catalog: NextPage = () => {
             <MangaSort />
           </Stack>
         </Stack>
-        {loading ? <Loader /> : <MangaList list={data.mangas.data} />}
+        {loading ? <Loader /> : config.type === "Manga" && <MangaList list={data.mangas.data} />}
       </Container>
     </motion.div>
   );

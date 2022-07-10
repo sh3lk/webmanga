@@ -11,6 +11,32 @@ module.exports = {
       "localhost",
       process.env.AWS_S3
     ],
+  },
+  async rewrites() {
+    return {
+      afterFiles: [
+        {
+          has: [
+            {
+              type: 'host',
+              value: '(?<host>.*)',
+            },
+          ],
+          source: '/',
+          destination: '/hosts/:host',
+        },
+        {
+          has: [
+            {
+              type: 'host',
+              value: '(?<host>.*)',
+            },
+          ],
+          source: '/catalog',
+          destination: '/hosts/:host/catalog',
+        },
+      ]
+    }
   }
 }
 
