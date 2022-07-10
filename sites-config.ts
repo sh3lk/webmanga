@@ -2,31 +2,31 @@ const config = [
   {
     host: 'webmanga.net',
     config: {
-      type: 'Manga'
+      type: 'manga'
     }
   },
   {
     host: 'webranobe.net',
     config: {
-      type: 'Ranobe'
+      type: 'ranobe'
     }
   },
   {
     host: 'webanime.net',
     config: {
-      type: 'Anime'
+      type: 'anime'
     }
   },
   {
     host: 'webhent.net',
     config: {
-      type: 'Hentai'
+      type: 'hentai'
     }
   },
   {
     host: 'localhost',
     config: {
-      type: 'Manga'
+      type: 'manga'
     }
   },
 ]

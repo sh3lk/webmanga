@@ -15,7 +15,7 @@ const ProductImgStyle = styled("img")({
 });
 
 
-export default function MangaCard({ id, name, cover, status }) {
+export default function MangaCard({ id, type, name, cover, status }) {
   return (
     <>
       <Card elevation={12} sx={{maxHeight:'333px'}} variant="outlined">
@@ -34,7 +34,7 @@ export default function MangaCard({ id, name, cover, status }) {
                   {status}
               </Label>
           )}
-              <NextLink href={`manga/${id}`}>
+              <NextLink href={`/${type}/${id}`}>
                   <CardActionArea component="a">
                       <Image
                           src={getImage(cover)}

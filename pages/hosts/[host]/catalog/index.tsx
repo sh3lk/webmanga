@@ -91,7 +91,7 @@ const Catalog: NextPage = ({config}: any) => {
           justifyContent="space-between"
           sx={{ mb: 5, mt: 6 }}
         >
-          <Typography variant="h5">{config.type} list</Typography>
+          <Typography variant="h5" sx={{textTransform: 'capitalize'}}>{config.type} list</Typography>
           <Stack direction="row" spacing={1} flexShrink={0} sx={{ my: 1 }}>
             <MangaFilterSidebar
               formik={formik}
@@ -103,7 +103,7 @@ const Catalog: NextPage = ({config}: any) => {
             <MangaSort />
           </Stack>
         </Stack>
-        {loading ? <Loader /> : config.type === "Manga" && <MangaList list={data.mangas.data} />}
+        {loading ? <Loader /> : config.type === "manga" && <MangaList type={config.type} list={data.mangas.data} />}
       </Container>
     </motion.div>
   );
