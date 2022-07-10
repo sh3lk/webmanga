@@ -16,7 +16,7 @@ const ErrorPage: FC = () => {
     >
       <Box maxWidth={350}>
         <img
-          src="/404.jpg"
+          src="/500.jpg"
           width="100%"
           alt="Error 404"
         />
