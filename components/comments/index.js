@@ -4,7 +4,7 @@ import { useSession } from "next-auth/react";
 import { useState, useMemo } from "react";
 import { formatDistance } from "date-fns";
 import { useQuery, useMutation, gql } from "@apollo/client";
-import Loader from "../loader";
+import Loader from "components/loader";
 import groupBy from 'lodash.groupby';
 const _COMMENT = `
     id
