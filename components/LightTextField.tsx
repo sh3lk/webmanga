@@ -9,13 +9,10 @@ const StyledTextField = styled(TextField)<TextFieldProps>(({ theme }) => ({
   "& .MuiOutlinedInput-notchedOutline": {
     borderRadius: "8px",
     border: "2px solid",
-    borderColor:
-      theme.palette.mode === "light"
-        ? theme.palette.secondary[300]
-        : theme.palette.divider,
+    borderColor: theme.palette.divider,
   },
   "& .MuiOutlinedInput-root.Mui-disabled .MuiOutlinedInput-notchedOutline": {
-    borderColor: theme.palette.secondary[300],
+    borderColor: theme.palette.divider,
   },
 }));
 
