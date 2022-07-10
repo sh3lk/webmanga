@@ -16,7 +16,7 @@ import {
   Avatar,
   IconButton,
 } from "@mui/material";
-import MenuPopover from "@/components/menu-popover";
+import MenuPopover from "components/menu-popover";
 
 const MENU_OPTIONS = [
   {

@@ -2,8 +2,8 @@ import type { NextPage } from "next";
 import { styled } from "@mui/material/styles";
 import { Stack, Link, Container, Typography } from "@mui/material";
 
-import LoginForm from "@/components/form/login";
-import AuthSocial from "@/components/form/social";
+import LoginForm from "components/form/login";
+import AuthSocial from "components/form/social";
 import { signIn } from "next-auth/react";
 const ContentStyle = styled("div")(({ theme }) => ({
   maxWidth: 480,

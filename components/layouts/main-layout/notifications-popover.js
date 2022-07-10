@@ -23,8 +23,8 @@ import {
   ListItemAvatar,
   ListItemButton,
 } from "@mui/material";
-import Scrollbar from "@/components/scrollbar";
-import MenuPopover from "@/components/menu-popover";
+import Scrollbar from "components/scrollbar";
+import MenuPopover from "components/menu-popover";
 
 const NOTIFICATIONS = [
   {

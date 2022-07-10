@@ -2,8 +2,8 @@ import type { NextPage } from "next";
 import { styled } from "@mui/material/styles";
 import { Box, Card, Link, Container, Typography } from "@mui/material";
 
-import RegisterForm from "@/components/form/register";
-import AuthSocial from "@/components/form/social";
+import RegisterForm from "components/form/register";
+import AuthSocial from "components/form/social";
 
 const ContentStyle = styled("div")(({ theme }) => ({
   maxWidth: 480,

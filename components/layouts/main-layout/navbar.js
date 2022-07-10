@@ -8,7 +8,7 @@ import Searchbar from "./searchbar";
 import AccountPopover from "./account-popover";
 import SitePopover from "./site-popover";
 import NotificationsPopover from "./notifications-popover";
-import Logo from "@/components/logo";
+import Logo from "components/logo";
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 

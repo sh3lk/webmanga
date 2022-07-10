@@ -1,7 +1,7 @@
 import type { AppProps } from "next/app";
-import MainLayout from "@/components/layouts/main-layout";
-import ThemeConfig from "@/components/theme";
-import GlobalStyles from "@/components/theme/globalStyles";
+import MainLayout from "components/layouts/main-layout";
+import ThemeConfig from "components/theme";
+import GlobalStyles from "components/theme/globalStyles";
 import CssBaseline from "@mui/material/CssBaseline";
 import Head from "next/head";
 import { CacheProvider } from "@emotion/react";

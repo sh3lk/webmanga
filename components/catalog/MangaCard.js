@@ -2,7 +2,7 @@ import Image from 'next/image'
 import NextLink from "next/link";
 import {Paper, Card, Link, Stack, Button, CardActionArea, CardMedia} from "@mui/material";
 import { styled } from "@mui/material/styles";
-import Label from "@/components/label";
+import Label from "components/label";
 import {getImage, getImageProps} from '@/lib/common/utils'
 
 

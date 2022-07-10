@@ -29,7 +29,7 @@ import { Icon } from "@iconify/react";
 import { alpha, styled } from "@mui/material/styles";
 import { useQuery, gql } from "@apollo/client";
 import Link from "next/link";
-import { getImage } from "@/lib/common/utils";
+import { getImage } from "lib/common/utils";
 import Comments from "../../../components/comments";
 import Loader from "../../../components/loader";
 import { motion } from "framer-motion";
