@@ -9,8 +9,8 @@ import {
   styled,
   useTheme,
 } from "@mui/material";
-import FlexBox from "components/FlexBox";
-import { H5, H6, Small, Tiny } from "components/Typography";
+import FlexBox from "@/components/flex-box";
+import { H5, H6, Small, Tiny } from "@/components/typography";
 import CommentIcon from "icons/CommentIcon";
 import ShareIcon from "icons/ShareIcon";
 import UploadIcon from "icons/UploadIcon";

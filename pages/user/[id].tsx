@@ -1,12 +1,12 @@
 import { TabContext, TabList, TabPanel } from "@mui/lab";
 import {Box, Avatar, Card, Container, Grid, styled, Tab} from "@mui/material";
-import FlexBox from "components/FlexBox";
-import SearchInput from "components/SearchInput";
-import { H3, Small } from "components/Typography";
-import FollowerCard from "components/userProfile/FollowerCard";
-import FriendCard from "components/userProfile/FriendCard";
-import Gallery from "components/userProfile/Gallery";
-import Profile from "components/userProfile/Profile";
+import FlexBox from "@/components/flex-box";
+import SearchInput from "@/components/search-input";
+import { H3, Small } from "@/components/typography";
+import FollowerCard from "@/components/user-profile/follower-card";
+import FriendCard from "@/components/user-profile/friend-card";
+import Gallery from "@/components/user-profile/gallery";
+import Profile from "@/components/user-profile/profile";
 
 import { FC, SyntheticEvent, useState } from "react";
 

@@ -1,6 +1,6 @@
 import { Box, useTheme } from "@mui/material";
-import FlexBox from "components/FlexBox";
-import { H1, Paragraph } from "components/Typography";
+import FlexBox from "@/components/flex-box";
+import { H1, Paragraph } from "@/components/typography";
 import { FC } from "react";
 
 const ErrorPage: FC = () => {

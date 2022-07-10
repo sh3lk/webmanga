@@ -2,7 +2,7 @@ import { Menu, MenuItem } from "@mui/material";
 import DeleteIcon from "icons/DeleteIcon";
 import PencilIcon from "icons/PencilIcon";
 import React, { FC } from "react";
-import { Small } from "./Typography";
+import { Small } from "./typography";
 
 // component props interface
 

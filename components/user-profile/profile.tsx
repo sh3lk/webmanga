@@ -1,12 +1,12 @@
 import { BusinessCenter, Mail, Place } from "@mui/icons-material";
 import { Box, Card, Divider, Grid, styled } from "@mui/material";
-import FlexBox from "components/FlexBox";
-import MoreOptions from "components/MoreOptions";
-import { H3, H4, H6, Small } from "components/Typography";
+import FlexBox from "@/components/flex-box";
+import MoreOptions from "@/components/more-options";
+import { H3, H4, H6, Small } from "@/components/typography";
 import FollowerIcon from "icons/FollowerIcon";
 import UserPlusIcon from "icons/UserPlusIcon";
 import { FC, MouseEvent, useState } from "react";
-import PostCard from "./PostCard";
+import PostCard from "./post-card";
 import {useRouter} from "next/router";
 import {useSession} from "next-auth/react";
 

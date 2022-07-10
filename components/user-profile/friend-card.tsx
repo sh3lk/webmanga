@@ -1,7 +1,7 @@
 import { Instagram, SportsBasketball, Twitter } from "@mui/icons-material";
 import { Card, IconButton } from "@mui/material";
 import { Box } from "@mui/system";
-import { H6, Small } from "components/Typography";
+import { H6, Small } from "@/components/typography";
 import FacebookIcon from "icons/FacebookIcon";
 import React, { FC } from "react";
 

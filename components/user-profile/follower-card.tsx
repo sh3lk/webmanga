@@ -1,6 +1,6 @@
 import { Box, Button, Card, styled, useTheme, Avatar } from "@mui/material";
-import FlexBox from "components/FlexBox";
-import { H6, Tiny } from "components/Typography";
+import FlexBox from "@/components/flex-box";
+import { H6, Tiny } from "@/components/typography";
 import { FC } from "react";
 
 interface FollowerCardProps {
