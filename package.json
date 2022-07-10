@@ -30,6 +30,7 @@
     "framer-motion": "^6.3.4",
     "graphql": "^16.5.0",
     "jsonwebtoken": "^8.5.1",
+    "lodash.groupby": "^4.6.0",
     "lodash.throttle": "^4.1.1",
     "next": "^12.1.6",
     "next-auth": "^4.3.3",
