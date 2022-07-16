@@ -46,6 +46,6 @@ function MyApp({
       </ThemeConfig>
     </CacheProvider>
   );
-}
+};
 
 export default MyApp;
