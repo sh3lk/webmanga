@@ -13,7 +13,7 @@ const Me: NextPage = () => {
     }
 
     if (status === "authenticated") {
-      router.push('/user/'+ session?.id);
+      router.push(`/user/${session?.id}`);
     }
   }, [status, session]);
 
