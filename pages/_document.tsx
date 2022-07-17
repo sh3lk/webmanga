@@ -21,8 +21,8 @@ class MyDocument extends Document {
         </body>
       </Html>
     );
-  }
-}
+  };
+};
 
 MyDocument.getInitialProps = async (ctx) => {
   const originalRenderPage = ctx.renderPage;
@@ -53,4 +53,5 @@ MyDocument.getInitialProps = async (ctx) => {
     emotionStyleTags,
   };
 };
+
 export default MyDocument;

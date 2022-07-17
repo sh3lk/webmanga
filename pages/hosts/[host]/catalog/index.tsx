@@ -34,14 +34,14 @@ export async function getStaticPaths() {
     paths: getPaths(),
     fallback: 'blocking',
   };
-}
+};
 
 export async function getStaticProps({params: {host}}: any) {
   return {
     props: getCommonProps(host),
     revalidate: REVALIDATE_INTERVAL.catalog,
   };
-}
+};
 
 const Catalog: NextPage = ({config}: any) => {
 
